@@ -4,12 +4,16 @@ aList = list(map(str,aCreated.split()))
 #List Manipulation
 
 command = input("Would you like to add to or remove from this list? ")
-location = input("Would you like to do this at the beginning or end of the list? ")
 
-if command == "add":
+if command.lower() == "no":
+    value=None
+    location=None
+elif command.lower() == "add":
     value = input("What number would you like to add? ")
+    location = input("Would you like to do this at the beginning or end of the list? ")
 else:
     value=None
+    location = input("Would you like to do this at the beginning or end of the list? ")
 
 def aList_manipulation(aList, command, location, value):
     if command == "remove":
@@ -26,6 +30,7 @@ def aList_manipulation(aList, command, location, value):
         if location == "end":
             aList.append(value)
             return f"Your new list is {aList}"
+    return "Okay!"
 
 print(aList_manipulation(aList, command, location, value))
 
