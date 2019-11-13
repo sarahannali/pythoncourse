@@ -11,7 +11,7 @@ class Deck:
     def __init__(self):
         self.cards = []
         self.build()
-    def how(self):
+    def left(self):
         return f"Deck of {len(self.cards)} cards"
     def build(self):
         for suit in ["Hearts", "Diamonds", "Clubs", "Spades"]:
@@ -30,7 +30,7 @@ class Deck:
             dealtcards = self.cards[:amount:]
             del self.cards[:amount:]
         elif amount > len(self.cards):
-            dealtcards = self.cards
+            dealtcards = self.cards[:len(self.cards):]
             self.cards.clear()
         return dealtcards
     def shuffle(self):
@@ -41,16 +41,3 @@ class Deck:
             raise ValueError ("Only full decks can be shuffled")
     def deal_card(self, amount=1):
         return self._deal(amount)
-
-def testcase():
-    d = Deck()
-    d.shuffle()
-    card = d.deal_card()
-    print(card)
-    d.deal_card(50)
-    card2 = d.deal_card()
-    print(card2)
-    print(d.cards)
-    card2 = d.deal_card()
-
-testcase()
