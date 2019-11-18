@@ -21,8 +21,7 @@ def statistics(txtfile):
     with open(txtfile) as File:
         for lines in File:
             linecount += 1
-            for char in lines:
-                charcount += 1
+            charcount += len(lines)
             words = lines.split()
             for word in words:
                 wordcount += 1
