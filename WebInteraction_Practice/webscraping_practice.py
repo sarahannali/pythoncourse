@@ -7,6 +7,8 @@ response = requests.get("https://www.rithmschool.com/blog")
 soup = BeautifulSoup(response.text, "html.parser")
 articles = soup.find_all("article")
 
+print(articles)
+
 with open("webscraping_practice.csv","w",newline="") as csvFile:
     csv_writer = writer(csvFile)
     csv_writer.writerow(["Title","Date","URL"])
