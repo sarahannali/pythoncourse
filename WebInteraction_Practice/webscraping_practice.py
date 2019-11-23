@@ -19,3 +19,5 @@ with open("webscraping_practice.csv","w",newline="") as csvFile:
         url = a_tag["href"]
         date = article.find("time")["datetime"]
         csv_writer.writerow([title,date,url])
+
+print(csv_writer)
